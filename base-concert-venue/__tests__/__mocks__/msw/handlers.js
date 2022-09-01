@@ -21,11 +21,14 @@ export const handlers = [
   ),
   rest.get(
     "http://localhost:3000/api/users/:userId/reservations",
-    async (request, response, context) =>
-      response(
+    async (request, response, context) => {
+      const { userId } = request.params;
+
+      return response(
         context.json({
-          userReservations: fakeUserReservations,
+          userReservations: Number(userId) === 1 ? fakeUserReservations : [],
         })
-      )
+      );
+    }
   ),
 ];
