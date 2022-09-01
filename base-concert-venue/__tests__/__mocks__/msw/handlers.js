@@ -1,6 +1,7 @@
 import { rest } from "msw";
 
 import { readFakeData } from "@/__tests__/__mocks__/fakeData";
+import { fakeUserReservations } from "@/__tests__/__mocks__/fakeData/userReservations";
 
 export const handlers = [
   rest.get(
@@ -13,5 +14,14 @@ export const handlers = [
         })
       );
     }
+  ),
+  rest.get(
+    "http://localhost:3000/api/users/:userId/reservations",
+    async (request, response, context) =>
+      response(
+        context.json({
+          userReservations: fakeUserReservations,
+        })
+      )
   ),
 ];
