@@ -9,3 +9,19 @@ test("reservation page shows the correct number of available seats", async () =>
 
   expect(seatCountText).toBeInTheDocument();
 });
+
+test("reservation page shows 'sold out' message and NO purchase button if there are no seats available", async () => {
+  render(<Reservation showId={1} submitPurchase={jest.fn()} />);
+
+  const soldOutText = await screen.findByRole("heading", {
+    name: /sold out/i,
+  });
+
+  expect(soldOutText).toBeInTheDocument();
+
+  const purchaseButton = screen.queryByRole("button", {
+    name: /purchase/i,
+  });
+
+  expect(purchaseButton).not.toBeInTheDocument();
+});

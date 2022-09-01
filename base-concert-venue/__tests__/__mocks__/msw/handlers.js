@@ -8,9 +8,13 @@ export const handlers = [
     "http://localhost:3000/api/shows/:showId",
     async (request, response, context) => {
       const { fakeShows } = await readFakeData();
+      const { showId } = request.params;
+
+      // index / showId = 0 has seats available in fake data
+      // index / showId = 1 has NO seats available
       return response(
         context.json({
-          show: fakeShows[0],
+          show: fakeShows[Number(showId)],
         })
       );
     }
