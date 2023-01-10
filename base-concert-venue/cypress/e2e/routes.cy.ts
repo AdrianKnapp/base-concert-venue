@@ -14,6 +14,10 @@ describe("Routes", () => {
       .first()
       .contains(/our illustrious performers/i);
   });
+
+  it("resets the db", () => {
+    cy.task("db:reset");
+  });
 });
 
 export {};
