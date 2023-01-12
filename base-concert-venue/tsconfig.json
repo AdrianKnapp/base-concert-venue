@@ -20,6 +20,6 @@
     "incremental": true,
     "types": ["cypress", "@testing-library/cypress"]
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "jest.setup.js"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "jest.setup.js", "cypress/support/commands.js"],
   "exclude": ["node_modules"]
 }
