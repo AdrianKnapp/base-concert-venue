@@ -10,7 +10,7 @@ describe("ISR tests for /shows page", () => {
         });
       });
 
-    cy.get("div").contains(/2022 sep 1[234]/i);
+    cy.get("div").contains(/2022 apr 1[456]/i);
   });
 });
 

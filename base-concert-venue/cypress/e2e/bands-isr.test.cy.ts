@@ -10,7 +10,7 @@ describe("ISR tests for /bands page", () => {
         });
       });
 
-    cy.get("div").contains(/The Blue Face Society/i);
+    cy.get("div").contains(/the wandering bunnies/i);
   });
 });
 
