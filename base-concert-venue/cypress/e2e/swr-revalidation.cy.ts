@@ -26,16 +26,28 @@ describe("swr revalidation", () => {
     cy.findAllByText(/sold out/i).should("have.length", 2);
   });
 
-  // # REVIEW: https://www.udemy.com/course/nextjs-testing/learn/lecture/32204062#questions/19007238
-  // it("should show correct ticket value after buy one", () => {
-  //   cy.clock();
-  //   cy.task("db:reset").visit("/reservations/0");
+  it("should show correct ticket value after buy one", () => {
+    cy.clock();
+    cy.task("db:reset").visit("/reservations/0");
 
-  //   // login
-  //   cy.findByRole("main").within(() => {
-  //     cy.findByRole("button", { name: /sign in/i }).click();
-  //   });
-  // });
+    // login
+    cy.findByRole("main").within(() => {
+      cy.findByRole("button", { name: /sign in/i }).click();
+    });
+
+    const newReservation = generateNewReservation({
+      reservationId: generateRandomId(),
+      showId: 0,
+      seatCount: 2,
+    });
+    cy.task("addReservation", newReservation);
+
+    cy.tick(ONE_SECOND);
+    cy.get("h2").contains(/10 seats left/i);
+
+    cy.tick(THIRTY_SECONDS);
+    cy.get("h2").contains(/8 seats left/i);
+  });
 });
 
 export default {};
