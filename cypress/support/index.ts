@@ -8,6 +8,7 @@ declare global {
        * @example cy.dataCy('greeting')
        */
       resetDbAndIsrCache: () => void;
+      signIn: (email?: string, password?: string) => void;
     }
   }
 }

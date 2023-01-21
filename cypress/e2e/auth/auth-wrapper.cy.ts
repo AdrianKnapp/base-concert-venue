@@ -88,6 +88,16 @@ describe("auth flow", () => {
       });
     });
   });
+
+  it("doest not show sign-in page when already signed in", () => {
+    cy.task("db:reset").signIn();
+
+    cy.visit("/reservations/0");
+
+    cy.contains(/sign in to your account/i).should("not.exist");
+
+    cy.contains(/purchase/i);
+  });
 });
 
 export {};
