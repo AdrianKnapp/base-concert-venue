@@ -79,6 +79,15 @@ describe("auth flow", () => {
     cy.contains(/welcome test@test.test/i);
     cy.contains(/your tickets/i);
   });
+
+  it("redirects to sign-in for protected pages", () => {
+    cy.fixture("protected-pages.json").then((urls: string[]) => {
+      urls.forEach((url) => {
+        cy.visit(url);
+        cy.contains(/email address/i);
+      });
+    });
+  });
 });
 
 export {};
