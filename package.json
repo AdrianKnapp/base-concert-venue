@@ -54,6 +54,7 @@
     "@types/jsonwebtoken": "^8.5.8",
     "@types/pbkdf2": "^3.1.0",
     "@types/react": "17.0.38",
+    "@types/testing-library__jest-dom": "^5.14.5",
     "@typescript-eslint/eslint-plugin": "^5.15.0",
     "@typescript-eslint/parser": "^5.15.0",
     "babel-jest": "27.4.5",
@@ -64,6 +65,7 @@
     "eslint-plugin-testing-library": "^5.0.1",
     "jest": "27.4.5",
     "msw": "^0.46.1",
+    "next-test-api-route-handler": "^3.1.8",
     "start-server-and-test": "^1.15.2",
     "typescript": "4.5.4",
     "typescript-eslint": "^0.0.1-alpha.0"
