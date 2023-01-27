@@ -14,7 +14,7 @@ test("/api/shows return shows from database", async () => {
       const json = await res.json();
 
       const { fakeShows } = await readFakeData();
-      expect(json).toEqual(fakeShows);
+      expect(json).toEqual({ shows: fakeShows });
     },
   });
 });
